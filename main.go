@@ -1,8 +1,12 @@
 package main
 
-import ("fmt";"Cipher_Project/xor";"Cipher_Project/ioutils")
+import (
+	"Cipher-Project/ioutils"
+	"Cipher-Project/xor"
+	"fmt"
+)
 
-func main(){
+func main() {
 	var path string
 	var key string
 	var data string
@@ -13,18 +17,19 @@ func main(){
 	fmt.Println("Ingrese la ruta del archivo a encriptar")
 	fmt.Scan(&path)
 
-	data=string(ioutils.Read_File(path))
+	data = string(ioutils.Read_File(path))
 
 	fmt.Println("-----------------------------")
 	fmt.Println("Ingrese su clave: ")
 	fmt.Scan(&key)
 
 	fmt.Println("-----------------------------")
-	encrypted:=xor.XorToAllElements(data,key)
-	fmt.Println("Encrypted",encrypted)
+	encrypted := xor.XorToAllElements(data, key)
+	fmt.Println("Encrypted", encrypted)
 
-	decrypted:=xor.XorToAllElements(encrypted,key)
-	fmt.Println("Decrypted",decrypted)
+	decrypted := xor.XorToAllElements(encrypted, key)
+	fmt.Println("Decrypted", decrypted)
 
-	ioutils.Write_File(`C:\Practica_en_GO\encrypted.txt`,[]byte(encrypted))
+	ioutils.Write_File(`C:\Practica-en-GO\encrypted.txt`, []byte(encrypted))
+	ioutils.Write_File(`C:\Practica-en-GO\decrypted.txt`, []byte(decrypted))
 }

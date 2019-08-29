@@ -5,7 +5,7 @@ var internalState [288]byte
 var t1,t2,t3 byte
 
 func UpdateEstate(){
-	var int i
+	var i int
 
 	t1=(t1|internalState[90]&internalState[91]|internalState[170])
 	t2=(t2|internalState[174]&internalState[175]|internalState[263])
